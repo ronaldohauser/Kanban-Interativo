@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Interativo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="kanban-board">
+        <div class="kanban-column" id="todo">
+            <h2>A fazer<span class="task-count" id="todo-count">0</span></h2>
+            <div class="kanban-items" id="todo-items"></div>
+            <input type="text" id="todo-input" placeholder="Tarefa...">
+            <div class="buttons">
+                <button class="add-button" onclick="addTask('todo')">Adicionar</button>
+                <button class="edit-button" onclick="editSelectedTask('todo')">Editar</button>
+                <button class="delete-button" onclick="deleteSelectedTask('todo')">Deletar</button>
+            </div>
+        </div>
+        <div class="kanban-column" id="in-progress">
+            <h2>Fazendo<span class="task-count" id="in-progress-count">0</span></h2>
+            <div class="kanban-items" id="in-progress-items"></div>
+            <input type="text" id="in-progress-input" placeholder="Tarefa...">
+            <div class="buttons">
+                <button class="add-button" onclick="addTask('in-progress')">Adicionar</button>
+                <button class="edit-button" onclick="editSelectedTask('in-progress')">Editar</button>
+                <button class="delete-button" onclick="deleteSelectedTask('in-progress')">Deletar</button>
+            </div>
+        </div>
+        <div class="kanban-column" id="done">
+            <h2>Feito<span class="task-count" id="done-count">0</span></h2>
+            <div class="kanban-items" id="done-items"></div>
+            <input type="text" id="done-input" placeholder="Tarefa...">
+            <div class="buttons">
+                <button class="add-button" onclick="addTask('done')">Adicionar</button>
+                <button class="edit-button" onclick="editSelectedTask('done')">Editar</button>
+                <button class="delete-button" onclick="deleteSelectedTask('done')">Deletar</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
