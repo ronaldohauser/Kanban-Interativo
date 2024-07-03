@@ -1,13 +1,13 @@
 # Kanban Interativo
 
-Este projeto consiste em um kanban interativo desenvolvido utilizando HTML, CSS e JavaScript. Um kanban é uma ferramenta visual que ajuda na gestão de tarefas, permitindo que estas sejam organizadas em colunas conforme seu status (por exemplo, "Para Fazer", "Em Progresso" e "Concluído").
+Este é um projeto de kanban interativo desenvolvido utilizando HTML, CSS e JavaScript. Um kanban é uma ferramenta visual que ajuda na gestão de tarefas, permitindo organizá-las em colunas de acordo com seu status, como "Para Fazer", "Em Progresso" e "Concluído".
 
 ## Funcionalidades
 
 - **Adicionar Tarefa:** Permite adicionar novas tarefas à coluna "Para Fazer".
-- **Editar Tarefa:** Permite editar o texto de uma tarefa existente.
+- **Editar Tarefa:** Clique duas vezes no título da coluna para editar seu nome.
 - **Excluir Tarefa:** Permite excluir uma tarefa.
-- **Mover Tarefa:** Permite arrastar e soltar tarefas entre as diferentes colunas do kanban.
+- **Mover Tarefa:** Arraste e solte tarefas entre as diferentes colunas do kanban.
 
 ## Tecnologias Utilizadas
 
@@ -17,5 +17,7 @@ Este projeto consiste em um kanban interativo desenvolvido utilizando HTML, CSS 
 
 ## Como Usar
 
-1. Clone este repositório: `https://github.com/ronaldohauser/Kanban-Interativo.git`
+1. Clone este repositório: git clone https://github.com/ronaldohauser/Kanban-Interativo.git
+
 2. Abra o arquivo `index.html` em seu navegador web.
+
