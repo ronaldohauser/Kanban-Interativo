@@ -12,6 +12,7 @@ function addTask(column, taskText = null) {
     task.draggable = true;
     task.onclick = () => selectTask(task);
     task.ondragstart = dragStart;
+    task.ondblclick = () => editTask(task);  // Adiciona evento de duplo clique para edição
 
     const taskContent = document.createElement("span");
     taskContent.textContent = text;
@@ -33,7 +34,8 @@ function selectTask(task) {
 
 function deleteSelectedTask(column) {
     if (selectedTask && selectedTask.parentElement.id === `${column}-items`) {
-        if (confirm("Tem certeza que deseja deletar essa tarefa?")) {
+        const confirmation = confirm("Tem certeza que deseja deletar essa tarefa?");
+        if (confirmation) {
             selectedTask.remove();
             saveTasks();
             updateTaskCounts();
@@ -44,11 +46,15 @@ function deleteSelectedTask(column) {
 
 function editSelectedTask(column) {
     if (selectedTask && selectedTask.parentElement.id === `${column}-items`) {
-        const newText = prompt("Editar tarefa:", selectedTask.textContent);
-        if (newText !== null) {
-            selectedTask.querySelector("span").textContent = newText;
-            saveTasks();
-        }
+        editTask(selectedTask);
+    }
+}
+
+function editTask(task) {
+    const newText = prompt("Editar tarefa:", task.querySelector("span").textContent);
+    if (newText !== null) {
+        task.querySelector("span").textContent = newText;
+        saveTasks();
     }
 }
 
