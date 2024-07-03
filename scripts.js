@@ -58,6 +58,15 @@ function editTask(task) {
     }
 }
 
+function changeTaskColor(color) {
+    if (selectedTask) {
+        selectedTask.style.backgroundColor = color;
+        saveTasks();
+    } else {
+        alert("Selecione uma tarefa para mudar a cor.");
+    }
+}
+
 function dragStart(event) {
     event.dataTransfer.setData("text/plain", event.target.id);
     event.dataTransfer.effectAllowed = "move";
@@ -85,8 +94,10 @@ function saveTasks() {
     columns.forEach(column => {
         const columnId = column.id;
         const tasks = [];
-        column.querySelectorAll('.kanban-item span').forEach(task => {
-            tasks.push(task.textContent);
+        column.querySelectorAll('.kanban-item').forEach(task => {
+            const taskText = task.querySelector("span").textContent;
+            const taskColor = task.style.backgroundColor;
+            tasks.push({ text: taskText, color: taskColor });
         });
         data[columnId] = tasks;
     });
@@ -98,8 +109,12 @@ function loadTasks() {
     if (!data) return;
     Object.keys(data).forEach(columnId => {
         const tasks = data[columnId];
-        tasks.forEach(taskText => {
-            addTask(columnId, taskText);
+        tasks.forEach(task => {
+            addTask(columnId, task.text);
+            const addedTask = document.getElementById(`task-${taskIdCounter - 1}`);
+            if (task.color) {
+                addedTask.style.backgroundColor = task.color;
+            }
         });
     });
     updateTaskCounts();
@@ -113,9 +128,12 @@ function updateTaskCounts() {
     });
 }
 
-document.querySelectorAll('.kanban-items').forEach(column => {
-    column.ondragover = dragOver;
-    column.ondrop = drop;
+document.addEventListener('DOMContentLoaded', () => {
+    loadTasks();
+    const columns = document.querySelectorAll('.kanban-column');
+    columns.forEach(column => {
+        column.addEventListener('dragover', dragOver);
+        column.addEventListener('drop', drop);
+    });
 });
 
-window.onload = loadTasks;

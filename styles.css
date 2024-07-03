@@ -1,13 +1,30 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha os quadros ao topo */
+    flex-direction: column; /* Alterado para coluna para alinhar o cabeçalho no topo */
+    align-items: center; /* Centraliza horizontalmente */
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
     padding: 20px;
     box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+header p {
+    color: #666;
+    font-size: 1.2rem;
+    margin: 0;
 }
 
 .kanban-board {
@@ -17,7 +34,7 @@ body {
     width: 100%;
     max-width: 1200px;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha os quadros ao topo */
+    align-items: flex-start;
 }
 
 .kanban-column {
