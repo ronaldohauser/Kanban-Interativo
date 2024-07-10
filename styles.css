@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+header p {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.kanban-board .kanban-column {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  flex: 1;
+}
+.kanban-board .kanban-column h2 {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kanban-board .kanban-column .kanban-items {
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+.kanban-board .kanban-column .kanban-item {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(100% - 22px);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.kanban-board .kanban-column .kanban-item span {
+  flex-grow: 1;
+  cursor: pointer;
+}
+.kanban-board .kanban-column .kanban-item.selected {
+  background-color: #d0d0ff;
+}
+.kanban-board .kanban-column input[type=text] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.kanban-board .kanban-column .buttons {
+  display: flex;
+  gap: 10px;
+}
+.kanban-board .kanban-column .buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.kanban-board .kanban-column .buttons button.add-button {
+  background-color: #28a745;
+}
+.kanban-board .kanban-column .buttons button.add-button:hover {
+  background-color: #1e7e34;
+}
+.kanban-board .kanban-column .buttons button.edit-button {
+  background-color: #ffc107;
+  color: #000000;
+}
+.kanban-board .kanban-column .buttons button.edit-button:hover {
+  background-color: #d39e00;
+}
+.kanban-board .kanban-column .buttons button.delete-button {
+  background-color: #dc3545;
+}
+.kanban-board .kanban-column .buttons button.delete-button:hover {
+  background-color: #bd2130;
+}
+
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column;
+    align-items: center;
+  }
+  .kanban-board .kanban-column {
+    width: calc(100% - 40px);
+    max-width: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

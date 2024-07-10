@@ -1,0 +1,152 @@
+// Variáveis
+$primary-color: #28a745;
+$secondary-color: #ffc107;
+$danger-color: #dc3545;
+$font-stack: Arial, sans-serif;
+
+// Mixins
+@mixin button-styles($bg-color, $hover-color) {
+    background-color: $bg-color;
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+body {
+    font-family: $font-stack;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    p {
+        color: #666;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}
+
+.kanban-board {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .kanban-column {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+        flex: 1;
+
+        h2 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kanban-items {
+            min-height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .kanban-item {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: calc(100% - 22px);
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+
+            span {
+                flex-grow: 1;
+                cursor: pointer;
+            }
+
+            &.selected {
+                background-color: #d0d0ff;
+            }
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+
+            button {
+                flex: 1;
+                padding: 10px;
+                border: none;
+                color: #ffffff;
+                border-radius: 5px;
+                cursor: pointer;
+                box-sizing: border-box;
+
+                &.add-button {
+                    @include button-styles($primary-color, darken($primary-color, 10%));
+                }
+
+                &.edit-button {
+                    background-color: $secondary-color;
+                    color: #000000;
+
+                    &:hover {
+                        background-color: darken($secondary-color, 10%);
+                    }
+                }
+
+                &.delete-button {
+                    @include button-styles($danger-color, darken($danger-color, 10%));
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+    .kanban-board {
+        flex-direction: column;
+        align-items: center;
+
+        .kanban-column {
+            width: calc(100% - 40px);
+            max-width: none;
+        }
+    }
+}
