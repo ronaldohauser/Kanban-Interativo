@@ -16,7 +16,7 @@
         <div class="kanban-column" id="todo">
             <h2>A fazer<span class="task-count" id="todo-count">0</span></h2>
             <div class="kanban-items" id="todo-items"></div>
-            <input type="text" id="todo-input" placeholder="Tarefa...">
+            <input type="text" id="todo-input" placeholder="Tarefa..." onkeypress="handleKeyPress(event, 'todo')">
             <div class="buttons">
                 <button class="add-button" onclick="addTask('todo')">Adicionar</button>
                 <button class="edit-button" onclick="editSelectedTask('todo')">Editar</button>
@@ -26,7 +26,7 @@
         <div class="kanban-column" id="in-progress">
             <h2>Fazendo<span class="task-count" id="in-progress-count">0</span></h2>
             <div class="kanban-items" id="in-progress-items"></div>
-            <input type="text" id="in-progress-input" placeholder="Tarefa...">
+            <input type="text" id="in-progress-input" placeholder="Tarefa..." onkeypress="handleKeyPress(event, 'in-progress')">
             <div class="buttons">
                 <button class="add-button" onclick="addTask('in-progress')">Adicionar</button>
                 <button class="edit-button" onclick="editSelectedTask('in-progress')">Editar</button>
@@ -36,7 +36,7 @@
         <div class="kanban-column" id="done">
             <h2>Feito<span class="task-count" id="done-count">0</span></h2>
             <div class="kanban-items" id="done-items"></div>
-            <input type="text" id="done-input" placeholder="Tarefa...">
+            <input type="text" id="done-input" placeholder="Tarefa..." onkeypress="handleKeyPress(event, 'done')">
             <div class="buttons">
                 <button class="add-button" onclick="addTask('done')">Adicionar</button>
                 <button class="edit-button" onclick="editSelectedTask('done')">Editar</button>
@@ -50,5 +50,6 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script src="subtasks.js"></script>
 </body>
 </html>

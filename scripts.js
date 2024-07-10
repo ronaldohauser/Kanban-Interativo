@@ -12,7 +12,7 @@ function addTask(column, taskText = null) {
     task.draggable = true;
     task.onclick = () => selectTask(task);
     task.ondragstart = dragStart;
-    task.ondblclick = () => editTask(task);  // Adiciona evento de duplo clique para edição
+    task.ondblclick = () => editTask(task);
 
     const taskContent = document.createElement("span");
     taskContent.textContent = text;
@@ -44,6 +44,14 @@ function deleteSelectedTask(column) {
     }
 }
 
+function deleteTaskWithKey(event) {
+    if (event.key === "Delete" || event.key === "del") {
+        deleteSelectedTask('todo');
+        deleteSelectedTask('in-progress');
+        deleteSelectedTask('done');
+    }
+}
+
 function editSelectedTask(column) {
     if (selectedTask && selectedTask.parentElement.id === `${column}-items`) {
         editTask(selectedTask);
@@ -55,6 +63,12 @@ function editTask(task) {
     if (newText !== null) {
         task.querySelector("span").textContent = newText;
         saveTasks();
+    }
+}
+
+function handleKeyPress(event, column) {
+    if (event.key === "Enter") {
+        addTask(column);
     }
 }
 
@@ -135,5 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
         column.addEventListener('dragover', dragOver);
         column.addEventListener('drop', drop);
     });
-});
 
+    const todoInput = document.getElementById('todo-input');
+    const inProgressInput = document.getElementById('in-progress-input');
+    const doneInput = document.getElementById('done-input');
+
+    todoInput.addEventListener('keypress', (event) => handleKeyPress(event, 'todo'));
+    inProgressInput.addEventListener('keypress', (event) => handleKeyPress(event, 'in-progress'));
+    doneInput.addEventListener('keypress', (event) => handleKeyPress(event, 'done'));
+
+    document.addEventListener('keydown', deleteTaskWithKey);
+});

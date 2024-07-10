@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column; /* Alterado para coluna para alinhar o cabeçalho no topo */
-    align-items: center; /* Centraliza horizontalmente */
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
@@ -70,7 +70,7 @@ header p {
     justify-content: space-between;
     align-items: center;
     max-width: calc(100% - 22px);
-    word-wrap: break-word; 
+    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
